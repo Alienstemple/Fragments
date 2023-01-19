@@ -8,4 +8,5 @@
     <string name="add">add</string>
     <string name="demo_fragments">demo fragments</string>
     <string name="sign_in_app">sign in app</string>
+    <string name="fragment_deprecated">fragment_deprecated</string>
 </resources>

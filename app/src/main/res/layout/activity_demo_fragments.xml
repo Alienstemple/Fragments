@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".DemoFragments">
 
+    <fragment
+        android:id="@+id/deprec_fragment"
+        android:name="com.example.fragments.FirstFragment"
+        tools:layout="@layout/fragment_first"
+        android:label="@string/fragment_deprecated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/test_frag_container"
         android:layout_width="match_parent"
