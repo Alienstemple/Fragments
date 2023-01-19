@@ -37,5 +37,13 @@ class DemoFragments : AppCompatActivity() {
 
             }
         }
+
+        binding.removeBtn.setOnClickListener {
+            if (savedInstanceState == null) {
+                supportFragmentManager.commit {
+                    supportFragmentManager.fragments.forEach { remove(it) }
+                }
+            }
+        }
     }
 }
