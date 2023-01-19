@@ -12,4 +12,6 @@
     <string name="hello_from_second_fragment">Hello from second fragment</string>
     <string name="backstack">Backstack</string>
     <string name="open_process">open process</string>
+    <string name="next">Next</string>
+    <string name="enter_name">Enter name</string>
 </resources>
