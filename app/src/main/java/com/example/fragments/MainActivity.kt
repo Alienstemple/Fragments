@@ -1,9 +1,12 @@
 package com.example.fragments
 
+import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputBinding
 import com.example.fragments.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -13,16 +16,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Add new fragment
-        binding.addBtn.setOnClickListener {
-            if (savedInstanceState == null) {
-                val firstFragment = FirstFragment.newInstance()
-                supportFragmentManager.beginTransaction()
-                    .add(R.id.test_frag_container, firstFragment)
-                    .commit()
-            }
+        binding.demoFragBtn.setOnClickListener {
+            intent = Intent(this, DemoFragments::class.java)
+            startActivity(intent)
         }
-
-
+        binding.signInBtn.setOnClickListener {
+            intent = Intent(this, SignInApp::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -6,4 +6,6 @@
     <string name="replace">replace</string>
     <string name="remove">remove</string>
     <string name="add">add</string>
+    <string name="demo_fragments">demo fragments</string>
+    <string name="sign_in_app">sign in app</string>
 </resources>
