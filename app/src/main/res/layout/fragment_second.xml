@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/first_fragment_frame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#81CA7891"
+    tools:context=".SecondFragment">
+
+    <TextView
+        android:id="@+id/first_fragment_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_from_second_fragment" />
+
+</FrameLayout>

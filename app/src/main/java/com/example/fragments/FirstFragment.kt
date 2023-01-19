@@ -24,7 +24,11 @@ class FirstFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var binding: FragmentFirstBinding
+    private var _binding: FragmentFirstBinding? = null
+    // This property is only valid between onCreateView and
+// onDestroyView.
+    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d(TAG, "onCreate() called with: savedInstanceState = $savedInstanceState")
@@ -38,8 +42,9 @@ class FirstFragment : Fragment() {
         Log.d(TAG,
             "onCreateView() called with: inflater = $inflater, container = $container, savedInstanceState = $savedInstanceState")
         // Inflate the layout for this fragment
-        binding = FragmentFirstBinding.inflate(inflater, container, false)
-        return binding.root
+        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onAttach(context: Context) {
@@ -92,6 +97,7 @@ class FirstFragment : Fragment() {
     override fun onDestroyView() {
         Log.d(TAG, "onDestroyView() called")
         super.onDestroyView()
+        _binding = null  // Clear memory
     }
 
     override fun onDestroy() {
