@@ -20,9 +20,10 @@ class DemoFragments : AppCompatActivity() {
         binding.addBtn.setOnClickListener {
             if (savedInstanceState == null) {
                 val firstFragment = FirstFragment.newInstance()
-                supportFragmentManager.beginTransaction()
+                val transaction = supportFragmentManager.beginTransaction()
                     .add(R.id.test_frag_container, firstFragment)
-                    .commit()
+                transaction.commit()
+                transaction.addToBackStack(null)  // Use backstack
             }
         }
 
