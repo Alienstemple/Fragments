@@ -21,21 +21,18 @@ class DemoFragments : AppCompatActivity() {
             if (savedInstanceState == null) {
                 val firstFragment = FirstFragment.newInstance()
                 val transaction = supportFragmentManager.beginTransaction()
-                    .add(R.id.test_frag_container, firstFragment)
+                    .add(R.id.test_frag_container, firstFragment, "TEST_TAG")
+                transaction.addToBackStack("TEST_TAG")  // Use backstack
                 transaction.commit()
-                transaction.addToBackStack(null)  // Use backstack
             }
         }
 
         binding.replaceBtn.setOnClickListener {
             if (savedInstanceState == null) {
-                val secondFragment = FirstFragment.newInstance()
-
                 supportFragmentManager.commit {
                     setReorderingAllowed(true)
                     replace(R.id.test_frag_container, SecondFragment.newInstance())
                 }
-
             }
         }
 
@@ -45,6 +42,18 @@ class DemoFragments : AppCompatActivity() {
                     supportFragmentManager.fragments.forEach { remove(it) }
                 }
             }
+        }
+
+        // Show backstack
+        binding.showBackstackBtn.setOnClickListener {
+            val fragments = supportFragmentManager.fragments
+            var backstack = ""
+            for (entry in 0 until supportFragmentManager.backStackEntryCount)
+            {
+                // TODO why id = -1
+                backstack += supportFragmentManager.getBackStackEntryAt(entry).id.toString() + " - " + fragments[entry].tag + "\n"
+            }
+            binding.showBackstackTv.text = backstack
         }
     }
 }

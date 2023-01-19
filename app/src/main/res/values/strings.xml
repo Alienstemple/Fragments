@@ -10,4 +10,5 @@
     <string name="sign_in_app">sign in app</string>
     <string name="fragment_deprecated">fragment_deprecated</string>
     <string name="hello_from_second_fragment">Hello from second fragment</string>
+    <string name="backstack">Backstack</string>
 </resources>
