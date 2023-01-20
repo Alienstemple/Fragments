@@ -22,7 +22,7 @@ class DemoFragments : AppCompatActivity() {
                 val firstFragment = FirstFragment.newInstance()
                 val transaction = supportFragmentManager.beginTransaction()
                     .add(R.id.test_frag_container, firstFragment, "TEST_TAG")
-                transaction.addToBackStack("TEST_TAG")  // Use backstack
+                transaction.addToBackStack("TEST_TAG 1")  // Use backstack
                 transaction.commit()
             }
         }
@@ -50,7 +50,7 @@ class DemoFragments : AppCompatActivity() {
             var backstack = ""
             for (entry in 0 until supportFragmentManager.backStackEntryCount)
             {
-                // TODO why id = -1
+                // TODO why id = 0 tag = null for first fragment
                 backstack += supportFragmentManager.getBackStackEntryAt(entry).id.toString() + " - " + fragments[entry].tag + "\n"
             }
             binding.showBackstackTv.text = backstack

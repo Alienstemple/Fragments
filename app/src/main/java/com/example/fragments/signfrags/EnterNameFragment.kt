@@ -1,11 +1,11 @@
-package com.example.fragments
+package com.example.fragments.signfrags
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import com.example.fragments.databinding.FragmentEnterNameBinding
 import com.example.fragments.databinding.FragmentFirstBinding
 import com.example.fragments.databinding.FragmentOpenProcessBinding
 
@@ -14,20 +14,19 @@ import com.example.fragments.databinding.FragmentOpenProcessBinding
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-private var _binding: FragmentOpenProcessBinding? = null
-// This property is only valid between onCreateView and
-// onDestroyView.
-private val binding get() = _binding!!
-
 /**
  * A simple [Fragment] subclass.
- * Use the [OpenProcessFragment.newInstance] factory method to
+ * Use the [EnterNameFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class OpenProcessFragment : Fragment() {
+class EnterNameFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var _binding: FragmentEnterNameBinding? = null
+    // This property is only valid between onCreateView and
+// onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,22 +40,9 @@ class OpenProcessFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding = FragmentOpenProcessBinding.inflate(inflater, container, false)
+        _binding = FragmentEnterNameBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val enterNameFragment = EnterNameFragment.newInstance()
-        val resultFragment = ResultFragment.newInstance()
-        _binding?.openProcessBtn?.setOnClickListener {
-            val transaction = parentFragmentManager.beginTransaction()
-                .replace(R.id.dialog_frag_container, enterNameFragment, "ENTER_NAME")
-                .add(R.id.result_frag_container, resultFragment, "ENTER_NAME")
-            transaction.addToBackStack("ENTER_NAME")
-            transaction.commit()
-        }
     }
 
     override fun onDestroyView() {
@@ -71,11 +57,16 @@ class OpenProcessFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment OpenProcessFragment.
+         * @return A new instance of fragment EnterNameFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance() =
-            OpenProcessFragment()
+            EnterNameFragment()
+
+        fun newInstance(param: String) =
+            EnterNameFragment().apply {
+
+            }
     }
 }

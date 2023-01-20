@@ -18,6 +18,42 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/attach_detach_frag_container"
+        android:layout_width="match_parent"
+        android:tag="test_tag"
+        android:layout_height="40dp"
+        tools:layout="@layout/fragment_first"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deprec_fragment" />
+
+    <Button
+        android:id="@+id/attach_detach_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/attach_detach"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/attach_detach_frag_container"/>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/show_hide_frag_container"
+        android:layout_width="match_parent"
+        android:tag="test_tag"
+        android:layout_height="40dp"
+        tools:layout="@layout/fragment_first"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/attach_detach_button" />
+
+    <Button
+        android:id="@+id/show_hide_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="show hide" />
+
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/test_frag_container"
         android:layout_width="match_parent"
         android:tag="test_tag"
