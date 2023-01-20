@@ -11,7 +11,8 @@ fun Fragment.navigator(): Navigator {
 }
 
 interface Navigator {
-
+    fun showOpenProcess()
+    fun showEnterName()
     fun goBack()
     fun goToMenu()
     fun <T : Parcelable> publishResult(result: T)

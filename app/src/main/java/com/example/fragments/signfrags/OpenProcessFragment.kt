@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.example.fragments.R
 import com.example.fragments.databinding.FragmentFirstBinding
 import com.example.fragments.databinding.FragmentOpenProcessBinding
+import com.example.fragments.navigator
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,13 +52,8 @@ class OpenProcessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val enterNameFragment = EnterNameFragment.newInstance()
         val resultFragment = ResultFragment.newInstance()
-        // TODO why checking not null
         binding.openProcessBtn.setOnClickListener {
-            val transaction = parentFragmentManager.beginTransaction()
-                .replace(R.id.dialog_frag_container, enterNameFragment, "ENTER_NAME")
-                .add(R.id.result_frag_container, resultFragment, "ENTER_NAME")
-            transaction.addToBackStack("ENTER_NAME")
-            transaction.commit()
+            navigator().showEnterName()
         }
     }
 

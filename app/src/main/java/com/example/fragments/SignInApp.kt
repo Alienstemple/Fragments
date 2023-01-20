@@ -11,7 +11,9 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.fragments.databinding.ActivitySignInAppBinding
+import com.example.fragments.signfrags.EnterNameFragment
 import com.example.fragments.signfrags.OpenProcessFragment
+import com.example.fragments.signfrags.ResultFragment
 
 class SignInApp : AppCompatActivity(), Navigator {
     lateinit var binding: ActivitySignInAppBinding
@@ -28,13 +30,13 @@ class SignInApp : AppCompatActivity(), Navigator {
             fm: FragmentManager,
             f: Fragment,
             v: View,
-            savedInstanceState: Bundle?
+            savedInstanceState: Bundle?,
         ) {
             super.onFragmentViewCreated(fm, f, v, savedInstanceState)
 
             if (f !is NavHostFragment) {
                 currentFragment = f
-//                updateUi()  // TODO update
+//                showOpenProcess() // TODO test
             }
         }
     }
@@ -44,21 +46,25 @@ class SignInApp : AppCompatActivity(), Navigator {
         binding = ActivitySignInAppBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        if (savedInstanceState == null) {
-            val openProcessFragment = OpenProcessFragment.newInstance()
-            val transaction = supportFragmentManager.beginTransaction()
-                .add(R.id.dialog_frag_container, openProcessFragment, "OPEN_PROCESS")
-            transaction.addToBackStack("OPEN_PROCESS")
-            transaction.commit()
-        }
-
         supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentListener, false)
+        showOpenProcess()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         supportFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentListener)
+    }
+
+    /**
+     * Показываем экран с кнопкой swowOpenProcess
+     */
+    override fun showOpenProcess() {
+        launchDialogFragment(OpenProcessFragment())
+    }
+
+    override fun showEnterName() {
+        launchDialogFragment(EnterNameFragment())
+        launchResultFragment(ResultFragment())
     }
 
     override fun goBack() {
@@ -86,6 +92,9 @@ class SignInApp : AppCompatActivity(), Navigator {
         }
     }
 
+    /**
+     * Вызываем replace и добавляем в backstack
+     */
     private fun launchDialogFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(
             R.id.dialog_frag_container, fragment)
