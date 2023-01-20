@@ -44,18 +44,16 @@ class ResultFragment : Fragment() {
             Log.d(TAG, "listenResult called")
             account = it
             binding.nameTv.text = account.name
-            Log.d(TAG, "account = ${account.name}")
+            if (account.img == 1) {
+                binding.userImg.setImageResource(R.drawable.ic_launcher_foreground)
+            }
+            Log.d(TAG, "account = ${account.name} ${account.img}")
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null  // Clear memory
-    }
-
-    fun setImage() {
-        Log.d("DebugImg", "In setImage()")
-        binding.userImg.setImageResource(R.drawable.ic_launcher_foreground)
     }
 
     companion object {

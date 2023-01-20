@@ -66,8 +66,5 @@ class EnterNameFragment : Fragment() {
         @JvmStatic
         fun newInstance() =
             EnterNameFragment()
-
-        fun newInstance(param: String) =
-            EnterNameFragment()
     }
 }
