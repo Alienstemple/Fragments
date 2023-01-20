@@ -6,6 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.commit
 import com.example.fragments.databinding.ActivityDemoFragmentsBinding
 import com.example.fragments.databinding.ActivityMainBinding
+import com.example.fragments.demofrags.FirstFragment
+import com.example.fragments.demofrags.SecondFragment
 import kotlin.random.Random
 
 class DemoFragments : AppCompatActivity() {
