@@ -12,7 +12,8 @@ fun Fragment.navigator(): Navigator {
 
 interface Navigator {
 
-    // TODO go back go to menu
+    fun goBack()
+    fun goToMenu()
     fun <T : Parcelable> publishResult(result: T)
     fun <T : Parcelable> listenResult(clazz: Class<T>, owner: LifecycleOwner, listener: ResultListener<T>)
 }
