@@ -48,6 +48,8 @@ class EnterNameFragment : Fragment() {
             Log.d(TAG, "In account : ${account.name}")
             navigator().publishResult(account)
             Log.d(TAG, "Result published")
+            // Go to choose image fragment
+            navigator().showChooseImage()
         }
     }
 

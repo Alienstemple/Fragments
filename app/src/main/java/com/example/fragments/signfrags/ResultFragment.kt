@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.fragments.R
 import com.example.fragments.data.Account
 import com.example.fragments.databinding.FragmentFirstBinding
 import com.example.fragments.databinding.FragmentOpenProcessBinding
@@ -50,6 +51,11 @@ class ResultFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null  // Clear memory
+    }
+
+    fun setImage() {
+        Log.d("DebugImg", "In setImage()")
+        binding.userImg.setImageResource(R.drawable.ic_launcher_foreground)
     }
 
     companion object {
