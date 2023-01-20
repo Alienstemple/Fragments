@@ -50,8 +50,6 @@ class OpenProcessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val enterNameFragment = EnterNameFragment.newInstance()
-        val resultFragment = ResultFragment.newInstance()
         binding.openProcessBtn.setOnClickListener {
             navigator().showEnterName()
         }

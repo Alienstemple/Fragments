@@ -5,15 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="20dp"
     android:background="#5D81EF"
-    tools:context=".signfrags.EnterNameFragment">
-
-    <EditText
-        android:id="@+id/enter_name_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:freezesText="true"
-        android:padding="16dp"
-        android:hint="@string/enter_name" />
+    tools:context=".signfrags.ChooseImageFragment">
 
     <Button
         android:id="@+id/enter_name_btn"
@@ -21,5 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="48dp"
+        android:text="@string/select_image" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="96dp"
         android:text="@string/next" />
+
 </FrameLayout>
