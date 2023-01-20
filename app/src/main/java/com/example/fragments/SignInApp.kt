@@ -86,6 +86,20 @@ class SignInApp : AppCompatActivity(), Navigator {
         }
     }
 
+    private fun launchDialogFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.dialog_frag_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
+    private fun launchResultFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(
+            R.id.result_frag_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
+
     companion object {
         @JvmStatic
         private val KEY_RESULT = "RESULT"
