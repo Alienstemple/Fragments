@@ -17,6 +17,9 @@ interface Navigator {
     fun goBack()
     fun goToMenu()
 
+    fun setName(name: String)
+    fun setImage()
+
     fun <T : Parcelable> publishResult(result: T)
     fun <T : Parcelable> listenResult(clazz: Class<T>, owner: LifecycleOwner, listener: ResultListener<T>)
 }

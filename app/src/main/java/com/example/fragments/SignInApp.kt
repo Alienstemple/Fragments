@@ -2,6 +2,7 @@ package com.example.fragments
 
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
@@ -80,6 +81,17 @@ class SignInApp : AppCompatActivity(), Navigator {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
+    override fun setName(name: String) {
+        Log.d(TAG, "setName() called")
+        val resultFrag = supportFragmentManager.findFragmentByTag("fragment_result")
+        Log.d(TAG, "Foung fragment ${resultFrag?.tag}")
+        (resultFrag as ResultFragment).setName(name)
+    }
+
+    override fun setImage() {
+        TODO("Not yet implemented")
+    }
+
     override fun <T : Parcelable> publishResult(result: T) {
 //        supportFragmentManager.findFragmentById(57)
         supportFragmentManager.setFragmentResult(
@@ -110,7 +122,7 @@ class SignInApp : AppCompatActivity(), Navigator {
 
     private fun launchResultFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(
-            R.id.result_frag_container, fragment)
+            R.id.result_frag_container, fragment, "fragment_result")
             .addToBackStack(null)
             .commit()
     }
@@ -118,5 +130,6 @@ class SignInApp : AppCompatActivity(), Navigator {
     companion object {
         @JvmStatic
         private val KEY_RESULT = "RESULT"
+        private const val TAG = "SignInAppLog"
     }
 }

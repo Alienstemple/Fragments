@@ -16,4 +16,5 @@
     <string name="enter_name">Enter name</string>
     <string name="attach_detach">attach detach</string>
     <string name="select_image">select image</string>
+    <string name="name">Name</string>
 </resources>

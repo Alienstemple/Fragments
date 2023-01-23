@@ -23,6 +23,15 @@ class ResultFragment : Fragment() {
     private var _binding: FragmentResultBinding? = null
     private val binding get() = _binding!!
 
+    fun setName(name: String) {
+        Log.d("SignInAppLog", "Set name = $name")
+        binding.nameTv.text = name
+    }
+
+    fun setImage(img: Int) {   // TODO annotation
+        binding.userImg.setImageResource(img)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         account = savedInstanceState?.getParcelable(KEY_OPTIONS) ?: Account.DEFAULT

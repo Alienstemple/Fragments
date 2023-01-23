@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#63E865"
+    android:id="@+id/fragment_result"
+    android:tag="fragment_result"
     tools:context=".ResultFragment">
 
     <ImageView
@@ -19,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="Name"
+        android:text="@string/name"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold" />

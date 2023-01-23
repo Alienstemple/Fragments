@@ -46,8 +46,12 @@ class EnterNameFragment : Fragment() {
             Log.d(TAG, "Btn pressed.")
             account = account.copy(name = binding.enterNameTv.text.toString())
             Log.d(TAG, "In account : ${account.name}")
-            navigator().publishResult(account)
+//            navigator().publishResult(account)
             Log.d(TAG, "Result published")
+
+            // test set name
+            navigator().setName(binding.enterNameTv.text.toString())
+
             // Go to choose image fragment
             navigator().showChooseImage()
         }
