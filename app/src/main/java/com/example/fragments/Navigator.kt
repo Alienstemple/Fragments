@@ -12,8 +12,10 @@ fun Fragment.navigator(): Navigator {
 
 interface Navigator {
     fun showOpenProcess()
+    fun showEnterNameGeneral()
     fun showEnterName()
     fun showChooseImage()
+    fun showChange()
     fun goBack()
     fun goToMenu()
 

@@ -50,8 +50,8 @@ class ChooseImageFragment : Fragment() {
 
             radiogroup.setOnCheckedChangeListener { group, checkedId ->
                 val imgRes = when(checkedId) {
-                    R.id.img_radio_1 -> R.drawable.img1//R.drawable.ic_lock_idle_alarm
-                    R.id.img_radio_2 -> R.drawable.img2//R.drawable.ic_menu_copy_material
+                    R.id.img_radio_1 -> R.drawable.img1
+                    R.id.img_radio_2 -> R.drawable.img2
                     else -> {throw RuntimeException("Except in radiogroup")}
                 }
 
@@ -62,7 +62,8 @@ class ChooseImageFragment : Fragment() {
         }
 
         binding.nextBtn.setOnClickListener {
-            navigator() // TODO go to change account data
+            Log.d(TAG, "Next pressed")
+            navigator().showChange()
         }
     }
 

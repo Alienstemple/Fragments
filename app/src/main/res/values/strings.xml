@@ -19,4 +19,7 @@
     <string name="name">Name</string>
     <string name="img1">1</string>
     <string name="img2">2</string>
+    <string name="change_name">change name</string>
+    <string name="change_image">change image</string>
+    <string name="finish">finish</string>
 </resources>

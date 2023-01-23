@@ -12,10 +12,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.fragments.databinding.ActivitySignInAppBinding
-import com.example.fragments.signfrags.ChooseImageFragment
-import com.example.fragments.signfrags.EnterNameFragment
-import com.example.fragments.signfrags.OpenProcessFragment
-import com.example.fragments.signfrags.ResultFragment
+import com.example.fragments.signfrags.*
 
 class SignInApp : AppCompatActivity(), Navigator {
     lateinit var binding: ActivitySignInAppBinding
@@ -64,13 +61,21 @@ class SignInApp : AppCompatActivity(), Navigator {
         launchDialogFragment(OpenProcessFragment())
     }
 
-    override fun showEnterName() {
+    override fun showEnterNameGeneral() {
         launchDialogFragment(EnterNameFragment())
         launchResultFragment(ResultFragment())
     }
 
+    override fun showEnterName() {
+        launchDialogFragment(EnterNameFragment())
+    }
+
     override fun showChooseImage() {
         launchDialogFragment(ChooseImageFragment())
+    }
+
+    override fun showChange() {
+        launchDialogFragment(ChangeFragment())
     }
 
     override fun goBack() {

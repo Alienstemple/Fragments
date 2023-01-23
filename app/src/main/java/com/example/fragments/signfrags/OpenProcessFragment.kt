@@ -51,7 +51,7 @@ class OpenProcessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.openProcessBtn.setOnClickListener {
-            navigator().showEnterName()
+            navigator().showEnterNameGeneral()
         }
     }
 
