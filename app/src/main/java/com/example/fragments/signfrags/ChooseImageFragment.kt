@@ -37,8 +37,10 @@ class ChooseImageFragment : Fragment() {
             Log.d(TAG, "Btn img pressed.")
             account = account.copy(img = 1)
             Log.d(TAG, "In account : ${account.img}")
-            navigator().publishResult(account)
+//            navigator().publishResult(account)
             Log.d(TAG, "Result published")
+
+            navigator().setImage(R.drawable.ic_launcher_foreground)
         }
         binding.nextBtn.setOnClickListener {
             navigator() // TODO go to change account data

@@ -88,8 +88,11 @@ class SignInApp : AppCompatActivity(), Navigator {
         (resultFrag as ResultFragment).setName(name)
     }
 
-    override fun setImage() {
-        TODO("Not yet implemented")
+    override fun setImage(img: Int) {
+        Log.d(TAG, "setImage() called")
+        val resultFrag = supportFragmentManager.findFragmentByTag("fragment_result")
+        Log.d(TAG, "Foung fragment ${resultFrag?.tag}")
+        (resultFrag as ResultFragment).setImage(img)
     }
 
     override fun <T : Parcelable> publishResult(result: T) {

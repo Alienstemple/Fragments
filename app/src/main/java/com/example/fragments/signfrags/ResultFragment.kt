@@ -24,7 +24,7 @@ class ResultFragment : Fragment() {
     private val binding get() = _binding!!
 
     fun setName(name: String) {
-        Log.d("SignInAppLog", "Set name = $name")
+        Log.d("TAG", "Set name = $name")
         binding.nameTv.text = name
     }
 
