@@ -81,6 +81,7 @@ class SignInApp : AppCompatActivity(), Navigator {
     }
 
     override fun <T : Parcelable> publishResult(result: T) {
+//        supportFragmentManager.findFragmentById(57)
         supportFragmentManager.setFragmentResult(
             result.javaClass.name,
             bundleOf(KEY_RESULT to result)

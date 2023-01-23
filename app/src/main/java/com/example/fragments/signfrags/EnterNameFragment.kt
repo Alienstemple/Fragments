@@ -51,6 +51,7 @@ class EnterNameFragment : Fragment() {
             // Go to choose image fragment
             navigator().showChooseImage()
         }
+//       requireArguments().getInt()
     }
 
     override fun onDestroyView() {
@@ -65,6 +66,8 @@ class EnterNameFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() =
-            EnterNameFragment()
+            EnterNameFragment().apply {
+                arguments = bundleOf(KEY_OPTIONS to account)
+            }
     }
 }

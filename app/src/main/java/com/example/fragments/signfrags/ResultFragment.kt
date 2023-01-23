@@ -56,6 +56,8 @@ class ResultFragment : Fragment() {
         _binding = null  // Clear memory
     }
 
+//    fun setImage()
+
     companion object {
         private const val TAG = "ResultFragmLog"
         private const val KEY_OPTIONS = "key_options"
