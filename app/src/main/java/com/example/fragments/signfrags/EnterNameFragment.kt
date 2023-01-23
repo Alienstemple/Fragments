@@ -1,5 +1,6 @@
 package com.example.fragments.signfrags
 
+import android.content.DialogInterface
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Parcel
@@ -9,6 +10,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import com.example.fragments.R
 import com.example.fragments.data.Account
@@ -43,17 +46,38 @@ class EnterNameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.enterNameBtn.setOnClickListener {
-            Log.d(TAG, "Btn pressed.")
-            account = account.copy(name = binding.enterNameTv.text.toString())
-            Log.d(TAG, "In account : ${account.name}")
+
+            if(binding.enterNameTv.text.isEmpty()) {
+                val dialogBuilder = AlertDialog.Builder(requireContext())
+
+                dialogBuilder.setMessage("Вы ввели пустое имя!")
+
+                .setCancelable(false)
+
+                .setPositiveButton("ОК", DialogInterface.OnClickListener {
+                    dialog, id -> Toast.makeText(context, "Empty. OK", Toast.LENGTH_SHORT).show()
+                    })
+
+                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+                    dialog, id -> dialog.cancel()
+                    })
+                val alert = dialogBuilder.create()
+                alert.setTitle("Предупреждение")
+                alert.show()
+            } else {
+
+                Log.d(TAG, "Btn pressed.")
+                account = account.copy(name = binding.enterNameTv.text.toString())
+                Log.d(TAG, "In account : ${account.name}")
 //            navigator().publishResult(account)
-            Log.d(TAG, "Result published")
+                Log.d(TAG, "Result published")
 
-            // test set name
-            navigator().setName(binding.enterNameTv.text.toString())
+                // test set name
+                navigator().setName(binding.enterNameTv.text.toString())
 
-            // Go to choose image fragment
-            navigator().showChooseImage()
+                // Go to choose image fragment
+                navigator().showChooseImage()
+            }
         }
 //       requireArguments().getInt()
     }
