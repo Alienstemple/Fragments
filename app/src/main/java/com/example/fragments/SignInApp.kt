@@ -84,6 +84,7 @@ class SignInApp : AppCompatActivity(), Navigator {
 
     override fun goToMenu() {
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        launchDialogFragment(OpenProcessFragment())
     }
 
     override fun setName(name: String) {
