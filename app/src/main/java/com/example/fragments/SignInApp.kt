@@ -58,28 +58,28 @@ class SignInApp : AppCompatActivity(), Navigator {
      * Показываем экран с кнопкой swowOpenProcess
      */
     override fun showOpenProcess() {
-        launchDialogFragment(OpenProcessFragment())
+        launchDialogFragment(OpenProcessFragment.newInstance())
     }
 
     override fun showEnterNameGeneral() {
-        launchDialogFragment(EnterNameFragment())
-        launchResultFragment(ResultFragment())
+        launchDialogFragment(EnterNameFragment.newInstance())
+        launchResultFragment(ResultFragment.newInstance())
     }
 
     override fun showEnterName() {
-        launchDialogFragment(EnterNameFragment())
+        launchDialogFragment(EnterNameFragment.newInstance())
     }
 
     override fun showChooseImage() {
-        launchDialogFragment(ChooseImageFragment())
+        launchDialogFragment(ChooseImageFragment.newInstance())
     }
 
     override fun showChange() {
-        launchDialogFragment(ChangeFragment())
+        launchDialogFragment(ChangeFragment.newInstance())
     }
 
     override fun goBack() {
-        onBackPressed()  // TODO check
+        onBackPressed()
     }
 
     override fun goToMenu() {

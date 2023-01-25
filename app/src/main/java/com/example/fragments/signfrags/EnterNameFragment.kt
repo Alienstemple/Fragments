@@ -1,23 +1,16 @@
 package com.example.fragments.signfrags
 
 import android.content.DialogInterface
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
-import com.example.fragments.R
+import androidx.fragment.app.Fragment
 import com.example.fragments.data.Account
 import com.example.fragments.databinding.FragmentEnterNameBinding
-import com.example.fragments.databinding.FragmentFirstBinding
-import com.example.fragments.databinding.FragmentOpenProcessBinding
 import com.example.fragments.dialogs.BlankNameAlertDialog
 import com.example.fragments.navigator
 
@@ -46,6 +39,9 @@ class EnterNameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Устанавливаем слушатель диалогу до входа в onClickListener
+        setupBlankNameDialogListener()
         binding.enterNameBtn.setOnClickListener {
 
             if(binding.enterNameTv.text.isEmpty()) {
@@ -74,6 +70,19 @@ class EnterNameFragment : Fragment() {
         _binding = null  // Clear memory
     }
 
+    private fun setupBlankNameDialogListener() {
+        // Устанавливаем слушателя
+        parentFragmentManager.setFragmentResultListener(BlankNameAlertDialog.KEY_REQUEST, this) { _, result ->
+            when (result.getInt(BlankNameAlertDialog.KEY_RESPONSE)) {
+                DialogInterface.BUTTON_POSITIVE -> Toast.makeText(context, "OK", Toast.LENGTH_SHORT)
+                    .show()
+                DialogInterface.BUTTON_NEGATIVE -> Toast.makeText(context,
+                    "Cancel",
+                    Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     companion object {
         const val TAG = "EnterNameFragLog"
         private const val KEY_OPTIONS = "key_options"
@@ -81,8 +90,6 @@ class EnterNameFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() =
-            EnterNameFragment().apply {
-                arguments = bundleOf(KEY_OPTIONS to account)
-            }
+            EnterNameFragment()
     }
 }

@@ -1,13 +1,10 @@
 package com.example.fragments.signfrags
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import com.example.fragments.R
-import com.example.fragments.databinding.FragmentFirstBinding
+import androidx.fragment.app.Fragment
 import com.example.fragments.databinding.FragmentOpenProcessBinding
 import com.example.fragments.navigator
 
