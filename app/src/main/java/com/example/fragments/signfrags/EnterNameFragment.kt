@@ -18,6 +18,7 @@ import com.example.fragments.data.Account
 import com.example.fragments.databinding.FragmentEnterNameBinding
 import com.example.fragments.databinding.FragmentFirstBinding
 import com.example.fragments.databinding.FragmentOpenProcessBinding
+import com.example.fragments.dialogs.BlankNameAlertDialog
 import com.example.fragments.navigator
 
 class EnterNameFragment : Fragment() {
@@ -48,22 +49,8 @@ class EnterNameFragment : Fragment() {
         binding.enterNameBtn.setOnClickListener {
 
             if(binding.enterNameTv.text.isEmpty()) {
-                val dialogBuilder = AlertDialog.Builder(requireContext())
-
-                dialogBuilder.setMessage("Вы ввели пустое имя!")
-
-                .setCancelable(false)
-
-                .setPositiveButton("ОК", DialogInterface.OnClickListener {
-                    dialog, id -> Toast.makeText(context, "Empty. OK", Toast.LENGTH_SHORT).show()
-                    })
-
-                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
-                    dialog, id -> dialog.cancel()
-                    })
-                val alert = dialogBuilder.create()
-                alert.setTitle("Предупреждение")
-                alert.show()
+                val dialog = BlankNameAlertDialog()
+                dialog.show(parentFragmentManager, BlankNameAlertDialog.TAG)
             } else {
 
                 Log.d(TAG, "Btn pressed.")

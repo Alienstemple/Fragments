@@ -48,7 +48,7 @@ class ChooseImageFragment : Fragment() {
             showDialogNotificationAction(bottomSheetDialog)
             val radiogroup: RadioGroup = bottomSheetView.findViewById(R.id.img_choose_radiogroup)
 
-            radiogroup.setOnCheckedChangeListener { group, checkedId ->
+            radiogroup.setOnCheckedChangeListener { _, checkedId ->
                 val imgRes = when(checkedId) {
                     R.id.img_radio_1 -> R.drawable.img1
                     R.id.img_radio_2 -> R.drawable.img2
