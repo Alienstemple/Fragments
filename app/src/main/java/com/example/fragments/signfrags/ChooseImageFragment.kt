@@ -9,7 +9,6 @@ import android.widget.FrameLayout
 import android.widget.RadioGroup
 import androidx.fragment.app.Fragment
 import com.example.fragments.R
-import com.example.fragments.data.Account
 import com.example.fragments.databinding.FragmentChooseImageBinding
 import com.example.fragments.navigator
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -18,17 +17,10 @@ class ChooseImageFragment : Fragment() {
     private var _binding: FragmentChooseImageBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var account: Account
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        account = savedInstanceState?.getParcelable(KEY_OPTIONS) ?: Account.DEFAULT
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentChooseImageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -47,10 +39,12 @@ class ChooseImageFragment : Fragment() {
             val radiogroup: RadioGroup = bottomSheetView.findViewById(R.id.img_choose_radiogroup)
 
             radiogroup.setOnCheckedChangeListener { _, checkedId ->
-                val imgRes = when(checkedId) {
+                val imgRes = when (checkedId) {
                     R.id.img_radio_1 -> R.drawable.img1
                     R.id.img_radio_2 -> R.drawable.img2
-                    else -> {throw RuntimeException("Except in radiogroup")}
+                    else -> {
+                        throw RuntimeException("Except in radiogroup")
+                    }
                 }
 
                 navigator().setImage(imgRes)
@@ -75,7 +69,7 @@ class ChooseImageFragment : Fragment() {
 
     companion object {
         private const val TAG = "ChooseImgFragmLog"
-        private const val KEY_OPTIONS = "key_options"
+
         @JvmStatic
         fun newInstance() =
             ChooseImageFragment()

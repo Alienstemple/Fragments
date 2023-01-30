@@ -8,20 +8,15 @@ import androidx.fragment.app.Fragment
 import com.example.fragments.databinding.FragmentChangeBinding
 import com.example.fragments.navigator
 
-
 class ChangeFragment : Fragment() {
 
     private var _binding: FragmentChangeBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentChangeBinding.inflate(inflater, container, false)
         return binding.root
     }
